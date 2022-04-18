@@ -11,8 +11,10 @@ import {
   extendTheme,
   VStack,
   Box,
+  Icon
 } from "native-base";
 import NativeBaseIcon from "./components/NativeBaseIcon";
+import { MaterialCommunityIcons, AntDesign, Entypo } from "@expo/vector-icons";
 import { Platform } from "react-native";
 
 // Define the config
@@ -28,13 +30,14 @@ export default function App() {
   return (
     <NativeBaseProvider>
       <Center
-        _dark={{ bg: "blueGray.900" }}
+        _dark={{ bg: "black" }}
         _light={{ bg: "blueGray.50" }}
         px={4}
         flex={1}
       >
         <VStack space={5} alignItems="center">
           <NativeBaseIcon />
+          <Example />
           <Heading size="lg">Welcome to NativeBase</Heading>
           <HStack space={2} alignItems="center">
             <Text>Edit</Text>
@@ -83,3 +86,19 @@ function ToggleDarkMode() {
     </HStack>
   );
 }
+
+function Example() {
+  return <Center>
+      <HStack space={3}>
+        <Icon as={AntDesign} name="android1" color="coolGray.800" _dark={{
+        color: "warmGray.50"
+      }} />
+        <Icon as={Entypo} name="app-store" color="coolGray.800" _dark={{
+        color: "warmGray.50"
+      }} />
+        <Icon as={MaterialCommunityIcons} name="web" color="coolGray.800" _dark={{
+        color: "warmGray.50"
+      }} />
+      </HStack>
+    </Center>;
+};
